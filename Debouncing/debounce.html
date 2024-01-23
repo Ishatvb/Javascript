@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function myFun(val){
+            console.log("hello" + val);
+            }
+            function debounce(callback, val, delay){
+                let timerId;
+                return function(){
+                    clearTimeout(timerId);
+                    timerId= setTimeout(
+                        function(){callback(val);}
+                    , delay);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type=" button" id="btn" value ="click">
+        <script>
+            let debouncedFun = debounce(myFun, "Jai", 3000);
+            document.getElementById("btn").addEventListener("click",debouncedFun);
+        </script>
+    </body>
+</html> 
